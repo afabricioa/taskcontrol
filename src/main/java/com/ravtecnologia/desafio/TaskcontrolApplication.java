@@ -21,6 +21,7 @@ public class TaskcontrolApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TaskcontrolApplication.class, args);
+		
 	}
 
 }

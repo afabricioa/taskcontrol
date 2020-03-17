@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -42,6 +43,13 @@ public class TaskControlResource {
 		return atividade;
 	}
 	
+	@PutMapping("/atividade")
+	public Atividade atualizarAtividade(@RequestBody @Valid Atividade atividade) {
+		atividade_repository.save(atividade);
+		
+		return atividade;
+	}
+	
 	
 	@GetMapping(value = "/grupo")
 	public @ResponseBody Iterable<Grupo> getGrupos(){
@@ -52,6 +60,13 @@ public class TaskControlResource {
 	
 	@PostMapping("/grupo")
 	public Grupo cadastrarGrupo(@RequestBody @Valid Grupo grupo) {
+		grupo_repository.save(grupo);
+		
+		return grupo;
+	}
+	
+	@PutMapping("/grupo")
+	public Grupo atualizarGrupo(@RequestBody @Valid Grupo grupo) {
 		grupo_repository.save(grupo);
 		
 		return grupo;
